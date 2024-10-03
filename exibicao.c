@@ -1,18 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-
-#define LINHAS 20
-#define COLUNAS 80
-
-void imprimeMoldura(char quadro[][COLUNAS], int linhas, int colunas)
-{
-	for(int i = 0; i < linhas; i++)
-	{
-		for(int j = 0; j < colunas; j++)printf("%c", quadro[i][j]);
-		printf("\n");
-	}
-}
+#include "obraDeArte.h"
 
 int main()
 {
@@ -31,7 +18,15 @@ int main()
 			if(i == 0 || i == LINHAS -1) quadro[i][j] = '-';
 		}
 	}
-	imprimeMoldura(quadro, LINHAS, COLUNAS);
+	//imprimeMoldura(quadro);
+	geraObra1(quadro,3);
+	for(int i = 0; i < LINHAS; i++){
+		for(int j = 0; j < COLUNAS; j++)
+		{
+			printf("%c", quadro[i][j]);
+		}
+		printf("\n");
+	}
 
 	return 0;
 }
