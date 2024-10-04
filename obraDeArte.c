@@ -151,3 +151,25 @@ void geraObra3(char quadro[][COLUNAS], int qtdFiguras)
 		colisao[determinaPosicaoX-1][determinaPosicaoY-1] = 1;
 	}
 }
+
+void geraObraMisturada(char quadro[][COLUNAS], int qtdFiguras)
+{
+	int seletorDeObra = 0;
+	for(int i = 0; i < qtdFiguras; i++)
+	{
+		seletorDeObra = rand()%(4);
+		switch (seletorDeObra) {
+			case 1:
+				geraObra1(quadro, 1);
+				break;
+			case 2:
+				geraObra2(quadro, 1);
+				break;
+			case 3:
+				geraObra3(quadro, 1);
+				break;
+			default:
+				break;
+		}
+	}
+}

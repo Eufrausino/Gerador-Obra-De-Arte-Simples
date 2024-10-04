@@ -18,9 +18,10 @@ int main()
 			if(i == 0 || i == LINHAS -1) quadro[i][j] = '-';
 		}
 	}
-	geraObra1(quadro,3);
-	geraObra2(quadro,4);
-	geraObra3(quadro, 2);
+	//geraObra1(quadro,3);
+	//geraObra2(quadro,4);
+	//geraObra3(quadro, 2);
+	geraObraMisturada(quadro, 5);
 	imprimeQuadro(quadro);
 
 	return 0;
