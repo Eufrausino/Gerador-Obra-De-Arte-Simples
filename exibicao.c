@@ -18,15 +18,9 @@ int main()
 			if(i == 0 || i == LINHAS -1) quadro[i][j] = '-';
 		}
 	}
-	//imprimeMoldura(quadro);
 	geraObra1(quadro,3);
-	for(int i = 0; i < LINHAS; i++){
-		for(int j = 0; j < COLUNAS; j++)
-		{
-			printf("%c", quadro[i][j]);
-		}
-		printf("\n");
-	}
+	geraObra2(quadro,4);
+	imprimeQuadro(quadro);
 
 	return 0;
 }

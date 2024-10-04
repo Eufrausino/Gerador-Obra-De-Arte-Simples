@@ -7,7 +7,7 @@
 #define LINHAS 20
 #define COLUNAS 80
 
-void imprimeMoldura(char quadro[][COLUNAS]);
+void imprimeQuadro(char quadro[][COLUNAS]);
 void geraObra1(char quadro[][COLUNAS], int qtdFiguras);
 void geraObra2(char quadro[][COLUNAS], int qtdFiguras);
 void geraObra3(char quadro[][COLUNAS], int qtdFiguras);
