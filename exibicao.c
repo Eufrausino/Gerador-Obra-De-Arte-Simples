@@ -20,6 +20,7 @@ int main()
 	}
 	geraObra1(quadro,3);
 	geraObra2(quadro,4);
+	geraObra3(quadro, 2);
 	imprimeQuadro(quadro);
 
 	return 0;
