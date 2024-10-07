@@ -21,7 +21,8 @@ int main()
 	//geraObra1(quadro,3);
 	//geraObra2(quadro,4);
 	//geraObra3(quadro, 2);
-	geraObraMisturada(quadro, 5);
+	//geraObraMisturada(quadro, 5);
+	geraObraPessoal(quadro);
 	imprimeQuadro(quadro);
 
 	return 0;
