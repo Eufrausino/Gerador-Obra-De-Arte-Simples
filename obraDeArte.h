@@ -8,10 +8,10 @@
 #define LINHAS 20
 #define COLUNAS 80
 
+//Struct para gerenciar melhor as artes ASCII
 typedef struct Pokemon
 {
 	char* img;
-	int coordenadas[LINHAS][COLUNAS];
 }pkm;
 
 void imprimeQuadro(char quadro[][COLUNAS]);
@@ -22,7 +22,6 @@ void geraObraMisturada(char quadro[][COLUNAS], int qtdFiguras);
 void geraObraPessoal(char quadro[][COLUNAS]);
 int geraNumeroAleatorioX();
 int geraNumeroAleatorioY();
-void inicializaCoordPKM(pkm pokemon);
 void contarLinhasColunas(pkm pkmn, int *linhas, int *colunas);
 
 #endif

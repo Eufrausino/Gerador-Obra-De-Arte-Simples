@@ -1,5 +1,6 @@
 #include "obraDeArte.h"
 
+//Exibe a obra de arte
 void imprimeQuadro(char quadro[][COLUNAS])
 {
 	for(int i = 0; i < LINHAS; i++)
@@ -9,11 +10,13 @@ void imprimeQuadro(char quadro[][COLUNAS])
 	}
 }
 
+//Gera valor aleatório para a coordena X do elemento central das obras 1,2 e 3
 int geraNumeroAleatorioX()
 {
 	return (rand()%LINHAS)+1; 
 }
 
+//Gera valor aleatório para a coordena Y do elemento central das obras 1,2 e 3
 int geraNumeroAleatorioY()
 {
 	return (rand()%COLUNAS)+1;
@@ -24,7 +27,8 @@ void geraObra1(char quadro[][COLUNAS], int qtdFiguras)
 	int colisao[LINHAS][COLUNAS];
 	int determinaPosicaoX;
 	int determinaPosicaoY;
-
+	
+	//Garante que nada será gerado sobre a moldura
 	for(int i = 0; i < LINHAS; i++)
 	{
 		for(int j = 0; j < COLUNAS; j++)
@@ -34,7 +38,8 @@ void geraObra1(char quadro[][COLUNAS], int qtdFiguras)
 			else colisao[i][j] = 0;
 		}
 	}
-
+	
+	//Gera figura de forma aleatória e garante que figuras não irão se sobrepor
 	for(int i = 0; i < qtdFiguras; i++)
 	{
 		determinaPosicaoX = geraNumeroAleatorioX();
@@ -152,6 +157,7 @@ void geraObra3(char quadro[][COLUNAS], int qtdFiguras)
 	}
 }
 
+//Une as funções anteriores e de forma aleatória decide qual função vai ser chamada
 void geraObraMisturada(char quadro[][COLUNAS], int qtdFiguras)
 {
 	int seletorDeObra = 0;
@@ -174,36 +180,34 @@ void geraObraMisturada(char quadro[][COLUNAS], int qtdFiguras)
 	}
 }
 
-void inicializaCoordPKM(pkm pokemon)
-{
-	for(int i = 0; i < LINHAS; i++)
-	{
-		for(int j = 0; j < LINHAS; j++)
-		{
-			pokemon.coordenadas[i][j] = 0;
-		}
-	}
-}
-
+//Usada para auxiliar na correção das artes ASCII
+//Evita seg fault e sobreposição de elementos
 void contarLinhasColunas(pkm pkmn, int* linhas, int* colunas)
 {
     *linhas = 0;
     *colunas = 0;
     int larguraAtual = 0;
 
-    for (int i = 0; pkmn.img[i] != '\0'; i++) {
-        if (pkmn.img[i] == '\n') {
+    for (int i = 0; pkmn.img[i] != '\0'; i++)
+    {
+        if (pkmn.img[i] == '\n')
+	{
             (*linhas)++;
-            if (larguraAtual > *colunas) {
+            if (larguraAtual > *colunas)
+	    {
                 *colunas = larguraAtual;
             }
             larguraAtual = 0;
-        } else {
+        }
+
+	else
+	{
             larguraAtual++;
         }
     }
 
-    if (larguraAtual > 0) {
+    if (larguraAtual > 0)
+    {
         (*linhas)++;
         if (larguraAtual > *colunas) {
             *colunas = larguraAtual;
@@ -211,6 +215,7 @@ void contarLinhasColunas(pkm pkmn, int* linhas, int* colunas)
     }
 }
 
+//Desenha no quadro alguma das artes de forma aleatória
 void geraObraPessoal(char quadro[][COLUNAS])
 {
    
@@ -398,24 +403,21 @@ void geraObraPessoal(char quadro[][COLUNAS])
         " mh\n";
 
         pkm iniciaisKanto[] = {bulbasaur,ivysaur,venusaur,squirtle,wartortle,blastoise,charmander,charmeleon,charizard};
-        for(int i = 0; i < 9; i++) inicializaCoordPKM(iniciaisKanto[i]);
-
-	for(int i = 0; i < 9; i++)
-	{
-		for(int j = 0 ; j < LINHAS; j++)
-		{
-			for(int k = 0; k < COLUNAS; k++)
-			{
-				if(iniciaisKanto[i].img[k]!=' ') iniciaisKanto[i].coordenadas[j][k] = 1;
-			}
-		}
-	}
+       
+	//int l = 0;
+	//int c = 0;
+	//for(int i = 0; i < 9; i++)
+	//{
+	//	contarLinhasColunas(iniciaisKanto[i], &l, &c);
+	//	printf("Linhas=%d\nColunas=%d\n",l,c);
+	//}
 
 	int seletorDePkm = 0;
 	seletorDePkm = rand()%9;
 	int linhas = 1;
 	int colunas = 1;
 	
+	//Insere Pokémon escolhido no quadro de forma aleatória
 	for(int j = 0; iniciaisKanto[seletorDePkm].img[j] != '\0'; j++)
 	{
 		if(iniciaisKanto[seletorDePkm].img[j] == '\n')
