@@ -35,7 +35,7 @@ void geraObra1(char quadro[][COLUNAS], int qtdFiguras)
 		{
 			if(i == 0 || i == LINHAS-1) colisao[i][j] = 1;
 			else if(j == 0 || j == COLUNAS-1) colisao[i][j] = 1;
-			else colisao[i][j] = 0;
+			if(colisao[i][j]!=1) colisao[i][j] = 0;
 		}
 	}
 	
@@ -71,7 +71,8 @@ void geraObra2(char quadro[][COLUNAS], int qtdFiguras)
 		{
 			if(i == 0 || i == LINHAS-1) colisao[i][j] = 1;
 			else if(j == 0 || j == COLUNAS-1) colisao[i][j] = 1;
-			else colisao[i][j] = 0;
+			if(colisao[i][j]!=1) colisao[i][j] = 0;
+
 		}
 	}
 
@@ -120,7 +121,7 @@ void geraObra3(char quadro[][COLUNAS], int qtdFiguras)
 		{
 			if(i == 0 || i == LINHAS-1) colisao[i][j] = 1;
 			else if(j == 0 || j == COLUNAS-1) colisao[i][j] = 1;
-			else colisao[i][j] = 0;
+			if(colisao[i][j]!=1) colisao[i][j] = 0;
 		}
 	}
 
@@ -163,7 +164,7 @@ void geraObraMisturada(char quadro[][COLUNAS], int qtdFiguras)
 	int seletorDeObra = 0;
 	for(int i = 0; i < qtdFiguras; i++)
 	{
-		seletorDeObra = rand()%(4);
+		seletorDeObra = rand()%3 + 1;
 		switch (seletorDeObra) {
 			case 1:
 				geraObra1(quadro, 1);
